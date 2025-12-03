@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlm56bwsjipag"]
+
+[ext_resource type="Texture2D" uid="uid://r8ggoljw4o65" path="res://Resources/img/bomb.png" id="1_tt5f1"]
+[ext_resource type="Theme" uid="uid://boofnfycjqjgg" path="res://Resources/Themes/MainTheme.tres" id="2_853f1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8saeu"]
+font_size = 90
+outline_size = 30
+outline_color = Color(0, 0, 0, 0.30980393)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(1.67, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_853f1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BombTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.08738426
+anchor_right = 1.0
+anchor_bottom = 0.7123842
+offset_top = -16.777786
+offset_bottom = -16.777832
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tt5f1")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.5520833
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 46.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("2_853f1")
+theme_type_variation = &"HeaderLarge"
+text = "B u s c a m i n a s"
+label_settings = SubResource("LabelSettings_8saeu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.5
+anchor_right = 0.8
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Continuar" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Continuar"
+
+[node name="Nuevo Juego" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+text = "Nuevo Juego"
