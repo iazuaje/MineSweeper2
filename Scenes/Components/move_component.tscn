@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqrk87vinm2no"]
+
+[ext_resource type="Script" uid="uid://bg4fo5whhttd8" path="res://Scenes/Scripts/Components/move_component.gd" id="1_c2i8r"]
+
+[node name="MoveComponent" type="Node"]
+script = ExtResource("1_c2i8r")
+amplitude = 5.0
+frequency = 0.5

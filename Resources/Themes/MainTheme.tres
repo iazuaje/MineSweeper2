@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://boofnfycjqjgg"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://boofnfycjqjgg"]
 
 [ext_resource type="FontFile" uid="uid://6xhrshj1vjff" path="res://Resources/Fonts/Rajdhani-Bold.ttf" id="1_dlpjt"]
 [ext_resource type="FontFile" uid="uid://deab7gkrm7n78" path="res://Resources/Fonts/Rajdhani-Medium.ttf" id="1_uwj12"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwj12"]
+content_margin_top = 25.0
+content_margin_bottom = 25.0
 bg_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 border_width_left = 10
 border_width_top = 10
@@ -14,22 +16,43 @@ shadow_color = Color(0, 0, 0, 0.078431375)
 shadow_size = 10
 shadow_offset = Vector2(5, 10)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwj12"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnlq5"]
+content_margin_top = 50.0
+content_margin_bottom = 50.0
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 10
+border_width_left = 30
 border_width_top = 10
-border_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+border_color = Color(0.67068917, 0.67068964, 0.67068917, 1)
 corner_radius_top_left = 50
 corner_radius_bottom_right = 50
+corner_detail = 9
 shadow_color = Color(0, 0, 0, 0.078431375)
 shadow_size = 10
 shadow_offset = Vector2(5, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyw18"]
+content_margin_top = 50.0
+content_margin_bottom = 50.0
 bg_color = Color(1, 1, 1, 1)
+border_width_left = 30
+border_width_top = 10
+border_color = Color(0.67068917, 0.67068964, 0.67068917, 1)
+corner_radius_top_left = 50
+corner_radius_bottom_right = 50
+corner_detail = 9
+shadow_color = Color(0, 0, 0, 0.078431375)
+shadow_size = 10
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cie5y"]
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.6542321, 0.6542321, 0.654232, 1)
 border_width_left = 10
 border_width_top = 10
-border_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+border_color = Color(0.45452392, 0.4545244, 0.45452398, 1)
 corner_radius_top_left = 50
 corner_radius_bottom_right = 50
 shadow_color = Color(0, 0, 0, 0.078431375)
@@ -37,11 +60,15 @@ shadow_size = 10
 shadow_offset = Vector2(5, 10)
 
 [resource]
-Button/colors/font_color = Color(0.43134022, 0.43134025, 0.43134025, 1)
-Button/constants/outline_size = 10
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0.27387273, 0.27387273, 0.27387273, 1)
+Button/colors/font_pressed_color = Color(0.45840496, 0.45840508, 0.4584049, 1)
+Button/constants/outline_size = 20
 Button/font_sizes/font_size = 60
 Button/fonts/font = ExtResource("1_uwj12")
 Button/styles/disabled = SubResource("StyleBoxFlat_uwj12")
+Button/styles/focus = SubResource("StyleBoxEmpty_uwj12")
 Button/styles/hover = SubResource("StyleBoxFlat_xnlq5")
 Button/styles/normal = SubResource("StyleBoxFlat_cyw18")
+Button/styles/pressed = SubResource("StyleBoxFlat_cie5y")
 Label/fonts/font = ExtResource("1_dlpjt")

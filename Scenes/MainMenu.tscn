@@ -1,7 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlm56bwsjipag"]
+[gd_scene load_steps=13 format=3 uid="uid://dlm56bwsjipag"]
 
 [ext_resource type="Texture2D" uid="uid://r8ggoljw4o65" path="res://Resources/img/bomb.png" id="1_tt5f1"]
 [ext_resource type="Theme" uid="uid://boofnfycjqjgg" path="res://Resources/Themes/MainTheme.tres" id="2_853f1"]
+[ext_resource type="Shader" uid="uid://bplmsjvgdn5he" path="res://Resources/Shaders/ScrollingDots.gdshader" id="2_ghw46"]
+[ext_resource type="FontFile" uid="uid://b0403qw1rrs1p" path="res://Resources/Fonts/Rajdhani-Regular.ttf" id="3_8saeu"]
+
+[sub_resource type="Gradient" id="Gradient_df05h"]
+colors = PackedColorArray(0.5689727, 0.56897277, 0.5689727, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8um5k"]
+gradient = SubResource("Gradient_df05h")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_xim88"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_koqhg"]
+gradient = SubResource("Gradient_xim88")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 2.685)
+repeat = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmrfp"]
+shader = ExtResource("2_ghw46")
+shader_parameter/gradient = SubResource("GradientTexture2D_koqhg")
+shader_parameter/circle_color = Color(0, 0, 0, 0.07058824)
+shader_parameter/circle_multiplier = 11.75
+shader_parameter/speed = 0.5
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/rotation = Transform2D(1, -1, 1, 1, 0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8saeu"]
 font_size = 90
@@ -10,6 +38,19 @@ outline_color = Color(0, 0, 0, 0.30980393)
 shadow_size = 13
 shadow_color = Color(0, 0, 0, 0.4627451)
 shadow_offset = Vector2(1.67, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghw46"]
+font = ExtResource("3_8saeu")
+font_size = 36
+font_color = Color(0.39688924, 0.39688927, 0.3968891, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.078431375)
+shadow_offset = Vector2(2.375, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_df05h"]
+font = ExtResource("3_8saeu")
+font_size = 27
+font_color = Color(0.585062, 0.585062, 0.5850621, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -22,7 +63,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_853f1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_8um5k")
+
+[node name="ColorRect" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_cmrfp")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,13 +87,14 @@ anchors_preset = -1
 anchor_top = 0.08738426
 anchor_right = 1.0
 anchor_bottom = 0.7123842
-offset_top = -16.777786
-offset_bottom = -16.777832
+offset_left = 177.0
+offset_top = 179.88884
+offset_right = -177.0
+offset_bottom = -213.44446
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_tt5f1")
-stretch_mode = 4
-metadata/_edit_use_anchors_ = true
+stretch_mode = 5
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 1
@@ -67,7 +119,7 @@ theme_type_variation = &"HeaderLarge"
 text = "B u s c a m i n a s"
 label_settings = SubResource("LabelSettings_8saeu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+[node name="Botones" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -78,11 +130,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 24
 
-[node name="Continuar" type="Button" parent="UI/VBoxContainer"]
+[node name="Continuar" type="Button" parent="UI/Botones"]
 layout_mode = 2
 disabled = true
 text = "Continuar"
 
-[node name="Nuevo Juego" type="Button" parent="UI/VBoxContainer"]
+[node name="Nuevo Juego" type="Button" parent="UI/Botones"]
 layout_mode = 2
 text = "Nuevo Juego"
+
+[node name="footer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="copywright" type="Label" parent="UI/footer"]
+layout_mode = 2
+text = "v0.0.1a ©2025 Todos los derechos reservados
+AI - Azuaje Iván"
+label_settings = SubResource("LabelSettings_ghw46")
+horizontal_alignment = 1
+
+[node name="label" type="Label" parent="UI/footer"]
+layout_mode = 2
+text = "(Not Actually AI)"
+label_settings = SubResource("LabelSettings_df05h")
+horizontal_alignment = 1
