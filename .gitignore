@@ -10,3 +10,7 @@ git_changes.txt
 # Claude Code
 CLAUDE.md
 .claude/
+
+# Ejemplos del addon ropesim y respaldos de editores de imagen
+/rope_examples/
+*~

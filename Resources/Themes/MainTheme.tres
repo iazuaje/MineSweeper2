@@ -66,11 +66,8 @@ shadow_color = Color(0, 0, 0, 0.13800001)
 shadow_size = 10
 shadow_offset = Vector2(0, 10)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xnlq5"]
-load_path = "res://.godot/imported/marco.png-59d72dc3204ca1a36b2b0014abbda328.ctex"
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cyw18"]
-texture = SubResource("CompressedTexture2D_xnlq5")
+texture = ExtResource("2_xnlq5")
 texture_margin_left = 86.0
 texture_margin_top = 38.0
 texture_margin_right = 78.0
