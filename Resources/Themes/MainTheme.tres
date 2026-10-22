@@ -1,74 +1,135 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://boofnfycjqjgg"]
+[gd_resource type="Theme" format=3 uid="uid://boofnfycjqjgg"]
 
 [ext_resource type="FontFile" uid="uid://6xhrshj1vjff" path="res://Resources/Fonts/Rajdhani-Bold.ttf" id="1_dlpjt"]
 [ext_resource type="FontFile" uid="uid://deab7gkrm7n78" path="res://Resources/Fonts/Rajdhani-Medium.ttf" id="1_uwj12"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwj12"]
-content_margin_top = 25.0
-content_margin_bottom = 25.0
-bg_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
-border_width_left = 10
-border_width_top = 10
-border_color = Color(0.6296744, 0.6296749, 0.62967443, 1)
-corner_radius_top_left = 50
-corner_radius_bottom_right = 50
-shadow_color = Color(0, 0, 0, 0.078431375)
-shadow_size = 10
-shadow_offset = Vector2(5, 10)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwj12"]
+[ext_resource type="Texture2D" uid="uid://cxvea1m6ivg45" path="res://Resources/img/marco.png" id="2_xnlq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnlq5"]
-content_margin_top = 50.0
-content_margin_bottom = 50.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 30
-border_width_top = 10
-border_color = Color(0.67068917, 0.67068964, 0.67068917, 1)
+bg_color = Color(0.18631536, 0.18631536, 0.18631536, 0.83900005)
+border_color = Color(0.44291073, 0.44291082, 0.4429105, 1)
 corner_radius_top_left = 50
-corner_radius_bottom_right = 50
-corner_detail = 9
-shadow_color = Color(0, 0, 0, 0.078431375)
+corner_radius_top_right = 50
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 13
+shadow_color = Color(0, 0, 0, 0.13800001)
 shadow_size = 10
-shadow_offset = Vector2(5, 10)
+shadow_offset = Vector2(0, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyw18"]
-content_margin_top = 50.0
-content_margin_bottom = 50.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 30
-border_width_top = 10
-border_color = Color(0.67068917, 0.67068964, 0.67068917, 1)
-corner_radius_top_left = 50
-corner_radius_bottom_right = 50
-corner_detail = 9
-shadow_color = Color(0, 0, 0, 0.078431375)
-shadow_size = 10
-shadow_offset = Vector2(5, 10)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cie5y"]
-content_margin_top = 50.0
-content_margin_bottom = 50.0
-bg_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
 border_width_left = 10
 border_width_top = 10
-border_color = Color(0.45452392, 0.4545244, 0.45452398, 1)
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.38227877, 0.7304792, 0.7631551, 1)
+border_blend = true
 corner_radius_top_left = 50
-corner_radius_bottom_right = 50
-shadow_color = Color(0, 0, 0, 0.078431375)
+corner_radius_top_right = 50
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_te5fk"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.9876836, 0.99152225, 0.9980903, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.44291073, 0.44291082, 0.4429105, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 13
+shadow_color = Color(0, 0, 0, 0.13800001)
 shadow_size = 10
-shadow_offset = Vector2(5, 10)
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cie5y"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.78201973, 0.8538796, 0.99999946, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.44291073, 0.44291082, 0.4429105, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 13
+shadow_color = Color(0, 0, 0, 0.13800001)
+shadow_size = 10
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xnlq5"]
+load_path = "res://.godot/imported/marco.png-59d72dc3204ca1a36b2b0014abbda328.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cyw18"]
+texture = SubResource("CompressedTexture2D_xnlq5")
+texture_margin_left = 86.0
+texture_margin_top = 38.0
+texture_margin_right = 78.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(0, 1, 136, 132)
+modulate_color = Color(0.5370987, 0.5370987, 0.5370987, 0.49019608)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_te5fk"]
+texture = ExtResource("2_xnlq5")
+texture_margin_left = 86.0
+texture_margin_top = 38.0
+texture_margin_right = 78.0
+texture_margin_bottom = 31.0
+region_rect = Rect2(0, 1, 136, 132)
+modulate_color = Color(1, 1, 1, 0.7019608)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xnlq5"]
+color = Color(0.62967473, 0.62967473, 0.6296747, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jkyx"]
+bg_color = Color(0.16565639, 0.16565642, 0.1656563, 1)
+border_width_left = 5
+border_width_top = 5
+border_color = Color(0.12955853, 0.12955844, 0.12955844, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [resource]
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(0.27387273, 0.27387273, 0.27387273, 1)
-Button/colors/font_pressed_color = Color(0.45840496, 0.45840508, 0.4584049, 1)
-Button/constants/outline_size = 20
-Button/font_sizes/font_size = 60
-Button/fonts/font = ExtResource("1_uwj12")
-Button/styles/disabled = SubResource("StyleBoxFlat_uwj12")
-Button/styles/focus = SubResource("StyleBoxEmpty_uwj12")
-Button/styles/hover = SubResource("StyleBoxFlat_xnlq5")
-Button/styles/normal = SubResource("StyleBoxFlat_cyw18")
+default_font = ExtResource("1_dlpjt")
+Button/colors/font_color = Color(0.34033877, 0.34033957, 0.34033898, 1)
+Button/colors/font_disabled_color = Color(0.65012825, 0.6501283, 0.6501282, 1)
+Button/colors/font_focus_color = Color(0.14406255, 0.14406255, 0.14406255, 1)
+Button/colors/font_hover_color = Color(0.18000469, 0.18000486, 0.18000537, 1)
+Button/colors/font_hover_pressed_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+Button/colors/font_pressed_color = Color(0.24477637, 0.24477643, 0.24477634, 1)
+Button/font_sizes/font_size = 70
+Button/styles/disabled = SubResource("StyleBoxFlat_xnlq5")
+Button/styles/focus = SubResource("StyleBoxFlat_cyw18")
+Button/styles/hover = SubResource("StyleBoxFlat_te5fk")
+Button/styles/normal = SubResource("StyleBoxFlat_te5fk")
 Button/styles/pressed = SubResource("StyleBoxFlat_cie5y")
+ButtonWithoutBG/base_type = &"Button"
+ButtonWithoutBG/colors/font_color = Color(1, 1, 1, 1)
+ButtonWithoutBG/colors/font_outline_color = Color(0.27387273, 0.27387273, 0.27387273, 1)
+ButtonWithoutBG/colors/font_pressed_color = Color(0.45840496, 0.45840508, 0.4584049, 1)
+ButtonWithoutBG/constants/outline_size = 20
+ButtonWithoutBG/font_sizes/font_size = 60
+ButtonWithoutBG/fonts/font = ExtResource("1_uwj12")
+ButtonWithoutBG/styles/disabled = SubResource("StyleBoxTexture_cyw18")
+ButtonWithoutBG/styles/focus = SubResource("StyleBoxTexture_te5fk")
+ButtonWithoutBG/styles/hover = SubResource("StyleBoxTexture_te5fk")
+ButtonWithoutBG/styles/normal = SubResource("StyleBoxTexture_te5fk")
+ButtonWithoutBG/styles/pressed = SubResource("StyleBoxTexture_te5fk")
+HSeparator/styles/separator = SubResource("StyleBoxLine_xnlq5")
 Label/fonts/font = ExtResource("1_dlpjt")
+LabelTitle/base_type = &"Label"
+LabelTitle/colors/font_color = Color(0, 0, 0, 1)
+LabelTitle/font_sizes/font_size = 60
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_3jkyx")

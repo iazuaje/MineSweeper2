@@ -6,3 +6,7 @@
 .vscode/
 git_changes.txt
 
+
+# Claude Code
+CLAUDE.md
+.claude/

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dlxcggv6me0kl"]
+
+[ext_resource type="Script" uid="uid://b41ykbdxq474a" path="res://Scenes/ui/time_panel.gd" id="1_snmle"]
+[ext_resource type="FontFile" uid="uid://ben1y1p4rig7q" path="res://Resources/Fonts/CourierPrime-Bold.ttf" id="2_snmle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sard0"]
+bg_color = Color(0.16565639, 0.16565642, 0.1656563, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.12955853, 0.12955844, 0.12955844, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwwik"]
+font = ExtResource("2_snmle")
+font_size = 50
+font_color = Color(0.9779369, 0.97793704, 0.9779369, 1)
+outline_size = 10
+outline_color = Color(0.5152921, 0.51529217, 0.51529217, 0.55300003)
+
+[node name="PanelTiempo" type="PanelContainer" unique_id=1407786637]
+theme_override_styles/panel = SubResource("StyleBoxFlat_sard0")
+script = ExtResource("1_snmle")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=238650627]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+
+[node name="Tiempo" type="Label" parent="MarginContainer" unique_id=579851218]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-- : --"
+label_settings = SubResource("LabelSettings_dwwik")
+horizontal_alignment = 1
