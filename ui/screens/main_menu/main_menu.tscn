@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://dlm56bwsjipag"]
+
+[ext_resource type="Script" uid="uid://cj608ou3au6dk" path="res://ui/screens/main_menu/main_menu.gd" id="1_hduq5"]
+[ext_resource type="PackedScene" uid="uid://8iqvs4urx6ss" path="res://ui/components/moving_background/moving_background.tscn" id="2_2hafn"]
+[ext_resource type="Shader" uid="uid://bplmsjvgdn5he" path="res://resources/shaders/ScrollingDots.gdshader" id="3_wdq5t"]
+[ext_resource type="PackedScene" uid="uid://xmxwu6ew1mit" path="res://ui/components/bomb_world/bomb_world.tscn" id="4_airt1"]
+[ext_resource type="Theme" uid="uid://boofnfycjqjgg" path="res://resources/themes/main_theme.tres" id="5_ocwm0"]
+[ext_resource type="FontFile" uid="uid://b0403qw1rrs1p" path="res://assets/fonts/Rajdhani-Regular.ttf" id="6_pi0ne"]
+[ext_resource type="Texture2D" uid="uid://bequuqwtvgspd" path="res://resources/img/cog_base.png" id="7_dgtpb"]
+
+[sub_resource type="Gradient" id="Gradient_hduq5"]
+resource_local_to_scene = true
+colors = PackedColorArray(0.5689727, 0.56897277, 0.5689727, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2hafn"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_hduq5")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_xim88"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wdq5t"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_xim88")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 2.685)
+repeat = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_airt1"]
+resource_local_to_scene = true
+shader = ExtResource("3_wdq5t")
+shader_parameter/gradient = SubResource("GradientTexture2D_wdq5t")
+shader_parameter/circle_color = Color(0, 0, 0, 0.07058824)
+shader_parameter/circle_multiplier = 11.75
+shader_parameter/speed = 0.5
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/rotation = Transform2D(1, -1, 1, 1, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8saeu"]
+font_size = 90
+outline_size = 30
+outline_color = Color(0, 0, 0, 0.30980393)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(1.67, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghw46"]
+font = ExtResource("6_pi0ne")
+font_size = 36
+font_color = Color(8.045867, 8.045867, 8.045867, 1)
+shadow_size = 7
+shadow_offset = Vector2(2.375, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_df05h"]
+font = ExtResource("6_pi0ne")
+font_size = 27
+font_color = Color(10.648514, 10.648514, 10.648514, 1)
+
+[node name="Menu" type="Control" unique_id=105312607]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hduq5")
+
+[node name="MovingBackground" parent="." unique_id=1513196128 instance=ExtResource("2_2hafn")]
+layout_mode = 1
+
+[node name="Background" parent="MovingBackground" index="0"]
+texture = SubResource("GradientTexture2D_2hafn")
+
+[node name="MovingCircles" parent="MovingBackground" index="1"]
+material = SubResource("ShaderMaterial_airt1")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2099397172]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 540.0
+offset_top = 1920.0
+offset_right = 1620.0
+offset_bottom = 1920.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=506468115]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1080, 1920)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="world" parent="SubViewportContainer/SubViewport" unique_id=376243622 instance=ExtResource("4_airt1")]
+
+[node name="UI" type="Control" parent="." unique_id=1571962808]
+layout_mode = 1
+anchor_top = 0.5520833
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="UI" unique_id=1893934130]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 46.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("5_ocwm0")
+theme_type_variation = &"HeaderLarge"
+text = "B u s c a m i n a s"
+label_settings = SubResource("LabelSettings_8saeu")
+
+[node name="Botones" type="VBoxContainer" parent="UI" unique_id=1015835729]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.14418605
+anchor_right = 0.8
+anchor_bottom = 0.6604651
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+metadata/_edit_use_anchors_ = true
+
+[node name="Nuevo Juego" type="Button" parent="UI/Botones" unique_id=244066095]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_ocwm0")
+text = "Nuevo Juego"
+
+[node name="Continuar" type="Button" parent="UI/Botones" unique_id=1661810923]
+layout_mode = 2
+size_flags_vertical = 3
+disabled = true
+text = "Continuar"
+
+[node name="footer" type="Panel" parent="UI" unique_id=148593352]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 0.89
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/footer" unique_id=2128044757]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.0
+offset_top = -77.0
+offset_right = 327.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="footer" type="VBoxContainer" parent="UI/footer/MarginContainer" unique_id=312348797]
+layout_mode = 2
+
+[node name="copywright" type="Label" parent="UI/footer/MarginContainer/footer" unique_id=566149800]
+layout_mode = 2
+text = "v0.0.1a ©2025 Todos los derechos reservados
+AI - Azuaje Iván"
+label_settings = SubResource("LabelSettings_ghw46")
+horizontal_alignment = 1
+
+[node name="label" type="Label" parent="UI/footer/MarginContainer/footer" unique_id=1317358904]
+layout_mode = 2
+text = "(Not Actually AI)"
+label_settings = SubResource("LabelSettings_df05h")
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=323199000]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 0.23137255)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8537037
+anchor_top = 0.027083334
+anchor_right = 0.9574074
+anchor_bottom = 0.078125
+grow_horizontal = 0
+texture = ExtResource("7_dgtpb")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfigurationButton" type="TextureButton" parent="." unique_id=435383743]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8574074
+anchor_top = 0.027604166
+anchor_right = 0.94962656
+anchor_bottom = 0.077083334
+grow_horizontal = 0
+texture_normal = ExtResource("7_dgtpb")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_up" from="UI/Botones/Nuevo Juego" to="." method="_on_nuevo_juego_button_up"]
+[connection signal="pressed" from="UI/Botones/Nuevo Juego" to="." method="_on_nuevo_juego_pressed"]
+[connection signal="button_up" from="UI/Botones/Continuar" to="." method="_on_continuar_button_up"]
+[connection signal="pressed" from="UI/Botones/Continuar" to="." method="_on_continuar_pressed"]
+
+[editable path="MovingBackground"]

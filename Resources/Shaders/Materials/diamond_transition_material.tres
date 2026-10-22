@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cotexmplob484"]
-
-[ext_resource type="Shader" uid="uid://bnlo3cm67sr6y" path="res://Resources/Shaders/diamond_transition.gdshader" id="1_2snsa"]
-
-[resource]
-shader = ExtResource("1_2snsa")
-shader_parameter/progress = 0.0
-shader_parameter/diamondPixelSize = 10.0

@@ -18,12 +18,12 @@ config/name="MineSweeper2"
 config/description="Proyecto de buscaminas actualizado y mejorado con soporte de android"
 config/version="0.0.1a"
 run/main_scene="uid://dlm56bwsjipag"
-config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.7", "Mobile")
+config/icon="res://assets/icons/icon.svg"
 
 [autoload]
 
-TransitionManager="*res://Scenes/ui/diamond_transition.tscn"
+TransitionManager="*res://autoloads/transition_manager/transition_manager.tscn"
 
 [debug]
 

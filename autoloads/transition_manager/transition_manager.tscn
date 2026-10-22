@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d0r6sppr1vp48"]
+
+[ext_resource type="Script" uid="uid://cdl7fn28eiuvn" path="res://autoloads/transition_manager/transition_manager.gd" id="1_cl6vy"]
+[ext_resource type="Material" uid="uid://cotexmplob484" path="res://resources/shaders/materials/diamond_transition_material.tres" id="1_n0hlc"]
+
+[node name="Transition" type="CanvasLayer"]
+script = ExtResource("1_cl6vy")
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = ExtResource("1_n0hlc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

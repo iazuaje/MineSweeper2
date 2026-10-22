@@ -11,6 +11,7 @@ git_changes.txt
 CLAUDE.md
 .claude/
 
-# Ejemplos del addon ropesim y respaldos de editores de imagen
+# Ejemplos del addon ropesim, respaldos de editores y copias temporales de Godot
 /rope_examples/
 *~
+~*

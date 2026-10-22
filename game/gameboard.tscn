@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://c7i6clr0f68m8"]
+
+[ext_resource type="Script" uid="uid://dvqopqshwhaeb" path="res://game/gameboard.gd" id="1_26nyk"]
+[ext_resource type="PackedScene" uid="uid://8iqvs4urx6ss" path="res://ui/components/moving_background/moving_background.tscn" id="2_gvy4e"]
+[ext_resource type="Texture2D" uid="uid://y4yrss6tfb4l" path="res://resources/img/back_arrow.png" id="3_cpgqj"]
+[ext_resource type="PackedScene" uid="uid://dlxcggv6me0kl" path="res://ui/hud/time_panel/time_panel.tscn" id="4_o0jod"]
+
+[sub_resource type="Gradient" id="Gradient_glu1n"]
+resource_local_to_scene = true
+colors = PackedColorArray(0.5649617, 0.5649617, 0.5649615, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1qkiw"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_glu1n")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.5)
+
+[sub_resource type="Shader" id="Shader_sard0"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D gradient;
+uniform vec4 circle_color : source_color = vec4(1.0,1.0,1.0,1.0);
+uniform float circle_multiplier = 10.0;
+uniform float speed = 1.0;
+uniform vec2 direction = vec2(1.0,1.0);
+uniform mat2 rotation = mat2(vec2(1.0,1.0), vec2(-1.0,1.0));
+
+void fragment() {
+	vec2 direction_norm = normalize(direction);
+	vec2 uv = UV;
+	vec2 uv_deriv = fwidthFine(uv);
+	float aspect_ratio = uv_deriv.y / uv_deriv.x;
+	uv.x *= aspect_ratio;
+	vec2 tiled_UV = rotation * (uv * circle_multiplier - direction_norm * TIME * speed);
+	vec2 local_uv = fract(tiled_UV);
+	vec2 center = vec2(0.5);
+	float dist = distance(local_uv, center);
+	float radius = texture(gradient, UV).r;
+	float circle_alpha = 1.0 - step(radius, dist);
+	COLOR = circle_color * vec4(circle_alpha);
+}"
+
+[sub_resource type="Gradient" id="Gradient_xim88"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dwwik"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_xim88")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 2.685)
+repeat = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m3j0"]
+resource_local_to_scene = true
+shader = SubResource("Shader_sard0")
+shader_parameter/gradient = SubResource("GradientTexture2D_dwwik")
+shader_parameter/circle_color = Color(0, 0, 0, 0.18200001)
+shader_parameter/circle_multiplier = 11.75
+shader_parameter/speed = 0.5
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/rotation = Transform2D(1, -1, 1, 1, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qkiw"]
+bg_color = Color(0, 0, 0, 0.55200005)
+
+[node name="Gameboard" type="Control" unique_id=479562764]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_26nyk")
+
+[node name="MovingBackground" parent="." unique_id=1511237100 instance=ExtResource("2_gvy4e")]
+layout_mode = 1
+
+[node name="Background" parent="MovingBackground" index="0"]
+texture = SubResource("GradientTexture2D_1qkiw")
+
+[node name="MovingCircles" parent="MovingBackground" index="1"]
+material = SubResource("ShaderMaterial_5m3j0")
+
+[node name="BackArrow" type="TextureButton" parent="." unique_id=1435293427]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 30.0
+offset_right = 153.4375
+offset_bottom = 149.0
+pivot_offset = Vector2(63.219, 59.5)
+texture_normal = ExtResource("3_cpgqj")
+texture_pressed = ExtResource("3_cpgqj")
+texture_hover = ExtResource("3_cpgqj")
+texture_disabled = ExtResource("3_cpgqj")
+texture_focused = ExtResource("3_cpgqj")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=538710650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=383573713]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 12
+
+[node name="BottonUi" type="PanelContainer" parent="VBoxContainer" unique_id=687557086]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1qkiw")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BottonUi" unique_id=468375347]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottonUi/MarginContainer" unique_id=408197347]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelTiempo" parent="VBoxContainer/BottonUi/MarginContainer/HBoxContainer" unique_id=1407786637 instance=ExtResource("4_o0jod")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Configuration" type="PanelContainer" parent="VBoxContainer/BottonUi/MarginContainer/HBoxContainer" unique_id=549779358]
+layout_mode = 2
+
+[connection signal="button_up" from="BackArrow" to="." method="_on_back_arrow_button_up"]
+
+[editable path="MovingBackground"]
